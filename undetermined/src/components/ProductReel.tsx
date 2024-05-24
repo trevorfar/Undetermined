@@ -1,11 +1,8 @@
-import { StaticImageData } from "next/image"
-import Image from "next/image"
-import { AspectRatio } from "./ui/aspect-ratio"
-import PersonIcon from "@mui/icons-material/Person"
-import { Separator } from "./ui/separator"
 import { Product, formatPrice } from "@/lib/utils"
-import AddIcon from "@mui/icons-material/Add"
-import { useCart } from "./useCart"
+import PersonIcon from "@mui/icons-material/Person"
+import Image from "next/image"
+import AddToCartButton from "./AddToCartButton"
+import { Separator } from "./ui/separator"
 
 const ProductReel = ({
   image,
@@ -14,14 +11,13 @@ const ProductReel = ({
   description,
   price,
   id,
-  
 }: Product) => {
-  const { cartItems, addItemToCart } = useCart()
 
   return (
     <div className="flex items-center justify-center mx-auto">
       <div className="flex flex-col">
         <div className=" mt-4 relative">
+          <p>{id}</p>
           <Image
             src={image}
             alt="Car Display Card"
@@ -33,13 +29,8 @@ const ProductReel = ({
         </div>
         <div className="mt-2 flex flex-col">
           <div className="flex flex-row">
-            <p className="font-bold text-2xl">{description}</p>
-            <button
-              className="justify-end ml-auto flex hover:bg-gray-100"
-              onClick={() => addItemToCart({ id, description, price, image })}
-            >
-              <AddIcon />
-            </button>
+            <div className="font-bold text-2xl">{description}</div>
+            <AddToCartButton product={{ id, description, price, image }}/>
           </div>
           <Separator />
         </div>

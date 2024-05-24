@@ -28,7 +28,7 @@ const Browser = () => {
         {filteredCars.map((car) => (
           <ProductReel
             id={car.id}
-            key={car.description}
+            key={car.id}
             image={car.image}
             category={car.category}
             seats={car.seats}

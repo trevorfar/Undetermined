@@ -17,11 +17,11 @@ export function formatPrice(data: number) {
       counter = 0
     }
   }
-  return "$" + newString.split('').reverse().join('');
+  return "$ " + newString.split('').reverse().join('');
 }
 
 export type Product = {
-  id: number
+  id: string
   image: string
   category?: string
   seats?: number
