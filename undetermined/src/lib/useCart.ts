@@ -1,6 +1,7 @@
 import { Product } from "@/lib/utils"
 import { create } from "zustand"
 import { createJSONStorage, persist } from "zustand/middleware"
+import { v4 as uuidv4 } from 'uuid';
 
 export type CartItem = {
     product: Product
@@ -19,7 +20,7 @@ export const useCart = create<CartState>()(
         items: [],
         addItem: (product) =>
           set((state) => ({
-            items: [...state.items, { product }],
+            items: [...state.items, { product: { ...product, id: uuidv4() } }],
           })),
         removeItem: (id) =>
           set((state) => ({

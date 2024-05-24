@@ -30,7 +30,7 @@ const ProductReel = ({
         <div className="mt-2 flex flex-col">
           <div className="flex flex-row">
             <div className="font-bold text-2xl">{description}</div>
-            <AddToCartButton product={{ id, description, price, image }}/>
+            <AddToCartButton product={{ id, description, price, image, category }}/>
           </div>
           <Separator />
         </div>

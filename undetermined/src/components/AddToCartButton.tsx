@@ -2,6 +2,7 @@
 import { Button } from "./ui/button"
 import { Product } from "@/lib/utils"
 import { useCart } from "@/lib/useCart"
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const AddToCartButton = ({ product }: { product: Product }) => {
     const { addItem } = useCart()
@@ -9,7 +10,8 @@ const AddToCartButton = ({ product }: { product: Product }) => {
 
     return <Button onClick={() => {
         addItem(product)
-    }} size='lg' className="justify-end ml-auto flex hover:bg-gray-100"> 
+    }} size='sm' className="justify-end ml-auto flex hover:bg-gray-50"> 
+    <ShoppingCartIcon />
     </Button>
 }
 

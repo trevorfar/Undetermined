@@ -20,7 +20,7 @@ const Browser = () => {
 
   const renderCar = (categoryFilter: string | undefined) => {
     const filteredCars = categoryFilter
-      ? cars.filter((car) => car.category === categoryFilter)
+      ? cars.filter((car) => car.category.includes(categoryFilter))
       : cars
 
     return (
@@ -44,29 +44,40 @@ const Browser = () => {
     <section className="h-screen">
       <div className="w-full">
         <div className="justify-center items-center mx-auto flex pt-12 ">
-          <h1 className="text-5xl ">Pick from our fleet</h1>
+          <h1 className=" text-3xl md:text-5xl ">Pick from our fleet</h1>
         </div>
         <div className="mx-auto justify-center items-center flex flex-row py-8 gap-4">
-          <div className="border-b-4 border-gray-200 gap-4 flex flex-row">
-            <button className="text-2xl" onClick={() => setCategory("")}>
+          <div className="w-full md:w-fit border-b-4 border-gray-200 gap-4 flex flex-col md:flex-row">
+            <button
+              className="text-2xl hover:text-gray-500 "
+              onClick={() => setCategory("")}
+            >
               All
             </button>
-            <button className="text-2xl" onClick={() => setCategory("suv")}>
+            <button
+              className="text-2xl hover:text-gray-500"
+              onClick={() => setCategory("suv")}
+            >
               SUVs
             </button>
-            <button className="text-2xl" onClick={() => setCategory("sedan")}>
+            <button
+              className="text-2xl hover:text-gray-500"
+              onClick={() => setCategory("sedan")}
+            >
               Sedans
             </button>
-            <button className="text-2xl" onClick={() => setCategory("ev")}>
+            <button
+              className="text-2xl hover:text-gray-500"
+              onClick={() => setCategory("ev")}
+            >
               EV & Hybrid
             </button>
             <button
-              className="text-2xl"
+              className="text-2xl hover:text-gray-500"
               onClick={() => setCategory("convertible")}
             >
               Convertible
             </button>
-          
           </div>
         </div>
       </div>

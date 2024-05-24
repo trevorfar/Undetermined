@@ -21,9 +21,9 @@ export function formatPrice(data: number) {
 }
 
 export type Product = {
-  id: string
+  id?: string
   image: string
-  category?: string
+  category: string[]
   seats?: number
   description: string
   price: number

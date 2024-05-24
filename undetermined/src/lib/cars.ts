@@ -5,31 +5,100 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const cars: Product[] = [
     {
-      id: "1",
       image:
         "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2025-CX-70-PHEV-Nav.png",
-      category: "suv",
-      seats: 8,
-      description: "Mazda CX-69",
+      category: ["suv", "ev"],
+      seats: 5,
+      description: "Mazda CX-70 Hybrid",
       price: 58750,
     },
     {
-      id: "2",
       image:
-        "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2025-CX-70-PHEV-Nav.png",
-      category: "suv",
-      seats: 8,
-      description: "Mazda CX-70",
-      price: 58750,
+        "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2025-CX-70-MHEV-Nav.png",
+      category: ["suv", "ev"],
+      seats: 5,
+      description: "Mazda CX-70 Hybrid",
+      price: 49750,
     },
     {
-      id: "3",
       image:
-        "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2025-CX-70-PHEV-Nav.png",
-      category: "suv",
+        "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2024-CX-90-PHEV-Nav.png",
+      category: ["suv", "ev"],
       seats: 8,
-      description: "Mazda CX-71",
-      price: 58750,
+      description: "Mazda CX-90 hybrid",
+      price: 54900,
+    },
+    {
+      image:
+        "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2024-CX-90-MHEV-Nav.png",
+      category: ["suv", "ev"],
+      seats: 8,
+      description: "Mazda CX-90 6 turbo",
+      price: 45900,
+    },
+    {
+      image:
+        "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2024-CX-5-Nav.png",
+      category: ["suv"],
+      seats: 5,
+      description: "Mazda CX-5",
+      price: 32250,
+    },
+    {
+      image:
+        "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2024-CX-50-Nav.png",
+      category: ["suv"],
+      seats: 5,
+      description: "Mazda CX-50",
+      price: 32250,
+    },
+    {
+      image:
+        "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2024-MAZDA3-Nav.png",
+      category: ["sedan"],
+      seats: 5,
+      description: "Mazda 3",
+      price: 24200,
+    },
+    {
+      image:
+        "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2024-MAZDA3-SPORT-Nav.png",
+      category: ["sedan"],
+      seats: 5,
+      description: "Mazda 3 Sport",
+      price: 24950,
+    },
+    {
+      image:
+        "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2024-CX-30-Nav.png",
+      category: ["sedan"],
+      seats: 5,
+      description: "Mazda CX-30",
+      price: 28150,
+    },
+    {
+      image:
+        "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2024-MX-5-SoftTop-Nav.png",
+      category: ["convertible"],
+      seats: 2,
+      description: "Mazda MX-5 Soft Top",
+      price: 34900,
+    },
+    {
+      image:
+        "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2024-MX-5-RF-Nav.png",
+      category: ["convertible"],
+      seats: 2,
+      description: "Mazda MX-5 RF",
+      price: 41900,
+    },
+    {
+      image:
+        "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2024-MX-30-Nav.png",
+      category: ["suv", "ev"],
+      seats: 2,
+      description: "Mazda MX-30 EV",
+      price: 41900,
     },
     
   ]

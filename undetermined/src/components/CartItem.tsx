@@ -7,8 +7,7 @@ import Image from "next/image"
 const CartItem = ({ product }: { product: Product }) => {
     const  image  = product.image
     const {removeItem} = useCart()
-    // const label = PRODUCT_CATEGORIES.find(({ value }) => value === product?.category
-// )?.label
+
     return (
         <div className="space-y-3 py-2">
             <div className="flex items-start justify-between gap-4">
@@ -26,7 +25,9 @@ const CartItem = ({ product }: { product: Product }) => {
                         <span className="line-clamp-1 text-sm font-medium mb-1">{product.description}</span>
                         {/* <span className="line-clamp-1 text-xs capitalize text-muted-foreground">{label}</span> */}
                     <div className="mt-4 text-xs text-muted-foreground">
-                        <button className="flex items-center gap-0.5" onClick={() => removeItem(product.id)}> <X className="w-4 h-4"/>
+                        <button className="flex items-center gap-0.5" onClick={
+                            // @ts-ignore
+                            () => removeItem(product.id)}> <X className="w-4 h-4"/>
                         Remove
                         </button>
                     </div>

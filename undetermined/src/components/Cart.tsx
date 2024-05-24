@@ -55,15 +55,15 @@ const Cart = () => {
                             <div className="space-1 5 text-sm">
                                 <div className="flex">
                                     <span className="flex-1">Shipping</span>
-                                    <span>Free</span>
+                                    <span className="text-muted-foreground">Free</span>
                                 </div>
                                 <div className="flex">
                                     <span className="flex-1">Transaction Fee</span>
-                                    <span>{formatPrice(fee)}</span>
+                                    <span className="text-muted-foreground">{formatPrice(fee)}</span>
                                 </div>
-                                <div className="flex">
-                                    <span className="flex-1">Total</span>
-                                    <span>{formatPrice(cartTotal + fee)}</span>
+                                <div className="flex ">
+                                    <span className="flex-1  text-xl">Total</span>
+                                    <span className="text-black text-lg border-b-2 border-black">{formatPrice(cartTotal + fee)}</span>
                                 </div>
                             </div>
 
