@@ -19,3 +19,18 @@ export function formatPrice(data: number) {
   }
   return "$" + newString.split('').reverse().join('');
 }
+
+export type Product = {
+  id: number
+  image: string
+  category?: string
+  seats?: number
+  description: string
+  price: number
+}
+
+export type CartItem = {
+  product: Product
+  quantity: number
+}
+

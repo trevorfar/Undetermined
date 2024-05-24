@@ -3,18 +3,9 @@ import Image from "next/image"
 import { AspectRatio } from "./ui/aspect-ratio"
 import PersonIcon from "@mui/icons-material/Person"
 import { Separator } from "./ui/separator"
-import { formatPrice } from "@/lib/utils"
-import AddIcon from '@mui/icons-material/Add';
-
-interface ProductReelProps {
-  image: string
-  category: string
-  seats: number
-  description: string
-  price: number
-}
-
-
+import { Product, formatPrice } from "@/lib/utils"
+import AddIcon from "@mui/icons-material/Add"
+import { useCart } from "./useCart"
 
 const ProductReel = ({
   image,
@@ -22,7 +13,11 @@ const ProductReel = ({
   seats,
   description,
   price,
-}: ProductReelProps) => {
+  id,
+  
+}: Product) => {
+  const { cartItems, addItemToCart } = useCart()
+
   return (
     <div className="flex items-center justify-center mx-auto">
       <div className="flex flex-col">
@@ -38,16 +33,18 @@ const ProductReel = ({
         </div>
         <div className="mt-2 flex flex-col">
           <div className="flex flex-row">
-          <p className="font-bold text-2xl">{description}</p>
-          <button className="justify-end ml-auto flex hover:bg-gray-100" >
-            <AddIcon/>
+            <p className="font-bold text-2xl">{description}</p>
+            <button
+              className="justify-end ml-auto flex hover:bg-gray-100"
+              onClick={() => addItemToCart({ id, description, price, image })}
+            >
+              <AddIcon />
             </button>
           </div>
           <Separator />
-        
         </div>
         <div className="flex flex-row justify-end mt-2">
-        <div className="text-lg text-muted-foreground">
+          <div className="text-lg text-muted-foreground">
             {formatPrice(price)}
           </div>
           <div className="ml-auto">

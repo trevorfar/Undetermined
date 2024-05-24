@@ -27,6 +27,7 @@ const Browser = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4">
         {filteredCars.map((car) => (
           <ProductReel
+            id={car.id}
             key={car.description}
             image={car.image}
             category={car.category}
