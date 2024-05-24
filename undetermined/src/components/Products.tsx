@@ -13,49 +13,30 @@ import {
 import { Button } from "./ui/button"
 import Link from "next/link"
 import ProductReel from "./ProductReel"
-
-const cars = [
-{
-image: "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2025-CX-70-PHEV-Nav.png",
-category: "fourDoor",
-seats: 8,
-description: "Mazda CX-70",
-price: 58750,
-},
-{
-image: "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2025-CX-70-PHEV-Nav.png",
-category: "fourDoor",
-seats: 8,
-description: "Mazda CX-70",
-price: 58750,
-},
-{
-image: "https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2025-CX-70-PHEV-Nav.png",
-category: "fourDoor",
-seats: 8,
-description: "Mazda CX-70",
-price: 58750,
-},
-
-]
-
+import { cars } from "@/lib/cars"
 
 const Browser = () => {
   const [category, setCategory] = useState("All")
 
-  const renderSquare = () => {
-    switch (category) {
-      case "Newest":
-        return <div className="w-32 h-32 bg-red-500"></div>
-      case "Best Selling":
-        return <div className="w-32 h-32 bg-yellow-500"></div>
-      case "Four Door":
-        return <div className="w-32 h-32 bg-blue-500"></div>
-      case "Sport":
-        return <div className="w-32 h-32 bg-green-500"></div>
-      default:
-        return <div className="w-32 h-32 bg-black"></div>
-    }
+  const renderCar = (categoryFilter: string | undefined) => {
+    const filteredCars = categoryFilter
+      ? cars.filter((car) => car.category === categoryFilter)
+      : cars
+
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4">
+        {filteredCars.map((car) => (
+          <ProductReel
+            key={car.description}
+            image={car.image}
+            category={car.category}
+            seats={car.seats}
+            description={car.description}
+            price={car.price}
+          />
+        ))}
+      </div>
+    )
   }
 
   return (
@@ -66,26 +47,23 @@ const Browser = () => {
         </div>
         <div className="mx-auto justify-center items-center flex flex-row pt-8 gap-4">
           <div className="border-b-4 border-gray-200 gap-4 flex flex-row">
-            <button className="text-2xl" onClick={() => setCategory("All")}>
+            <button className="text-2xl" onClick={() => setCategory("")}>
               All
             </button>
-            <button className="text-2xl" onClick={() => setCategory("Newest")}>
-              Newest
+            <button className="text-2xl" onClick={() => setCategory("suv")}>
+              SUVs
+            </button>
+            <button className="text-2xl" onClick={() => setCategory("sedan")}>
+              Sedans
+            </button>
+            <button className="text-2xl" onClick={() => setCategory("ev")}>
+              EV & Hybrid
             </button>
             <button
               className="text-2xl"
-              onClick={() => setCategory("Best Selling")}
+              onClick={() => setCategory("convertible")}
             >
-              Best Selling
-            </button>
-            <button
-              className="text-2xl"
-              onClick={() => setCategory("Four Door")}
-            >
-              Four Door
-            </button>
-            <button className="text-2xl" onClick={() => setCategory("Sport")}>
-              Sport
+              Convertible
             </button>
             <Drawer>
               <DrawerTrigger className="text-2xl">
@@ -119,18 +97,8 @@ const Browser = () => {
             </Drawer>
           </div>
         </div>
-        <div className="flex justify-center items-center mt-8">
-          {renderSquare()}
-        </div>
       </div>
-      {}
-      <ProductReel
-        image="https://www.mazda.ca/globalassets/mazda-canada/build-and-price/jellies/2025-CX-70-PHEV-Nav.png"
-        category="fourDoor"
-        seats={8}
-        description="Mazda CX-70"
-        price={58750}
-      />
+      {renderCar(category)}
     </section>
   )
 }
