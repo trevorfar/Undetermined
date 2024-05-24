@@ -1,22 +1,17 @@
 import MaxWidthWrapper from "./MaxWidthWrapper"
 import cover from "../../public/cover.jpg"
-
 import Image from "next/image"
+import { AspectRatio } from "./ui/aspect-ratio"
+import  TitleScreen  from "./ui/TitleScreen"
 const Title = () => {
+  const TitleWords = ["Performance", "Speed", "Quality"]
   return (
-    <div id="title" className="relative">
-      <div>
-        <Image
-          src={cover}
-          className=""
-          alt="designed by freepik"
-          
-        />
+    <section id="title" className="bg-gradient-to-b from-gray-500 to-gray-50">
+
+      <div className="p-24 flex justify-center items-center mx-auto">
+      <TitleScreen titles={TitleWords} />
       </div>
-      <div className="absolute top-1/2 left-0 transform -translate-y-1/2 w-full text-center">
-      <h1 className="text-4xl text-white">Welcome</h1>
-      </div>
-    </div>
+    </section>
   )
 }
 

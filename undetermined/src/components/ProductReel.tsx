@@ -4,6 +4,7 @@ import { AspectRatio } from "./ui/aspect-ratio"
 import PersonIcon from "@mui/icons-material/Person"
 import { Separator } from "./ui/separator"
 import { formatPrice } from "@/lib/utils"
+import AddIcon from '@mui/icons-material/Add';
 
 interface ProductReelProps {
   image: string
@@ -36,7 +37,12 @@ const ProductReel = ({
           />
         </div>
         <div className="mt-2 flex flex-col">
+          <div className="flex flex-row">
           <p className="font-bold text-2xl">{description}</p>
+          <button className="justify-end ml-auto flex hover:bg-gray-100" >
+            <AddIcon/>
+            </button>
+          </div>
           <Separator />
         
         </div>

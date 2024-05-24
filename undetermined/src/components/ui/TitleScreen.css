@@ -1,0 +1,7 @@
+.title {
+  transition: opacity 0.7s;
+}
+
+.fade-out {
+  opacity: 0;
+}
