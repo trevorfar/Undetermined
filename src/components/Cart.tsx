@@ -18,11 +18,13 @@ const Cart = () => {
     const itemCount = items.length
     const fee = 1
     const [isMounted, setIsMounted] = useState<boolean>(false)
+    const [isOpen, setIsOpen] = useState<boolean>(false)
 
     useEffect(() => {
         setIsMounted(true)
     }, [])
 
+   
     const cartTotal = items.reduce((total, { product }) => total + product.price, 0)
 
 
