@@ -36,7 +36,7 @@
 
     return (
       <h1 className={`title ${fadeOut ? 'fade-out' : ''}`}>
-        <p className='text-6xl'>{finalWordDisplayed ? <div className='text-7xl border-b-2 border-black'>Veloce</div> : titles[currentTitleIndex]}</p>
+        <div className='text-6xl'>{finalWordDisplayed ? <div className='text-7xl border-b-2 border-black'>Veloce</div> : titles[currentTitleIndex]}</div>
       </h1>
     );
   };

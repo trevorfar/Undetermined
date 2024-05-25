@@ -1,19 +1,7 @@
 "use client"
-import { useState } from "react"
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer"
-import { Button } from "./ui/button"
-import Link from "next/link"
-import ProductReel from "./ProductReel"
 import { cars } from "@/lib/cars"
+import { useState } from "react"
+import ProductReel from "./ProductReel"
 
 const Browser = () => {
   const [category, setCategory] = useState("")
@@ -25,10 +13,10 @@ const Browser = () => {
 
     return (
       <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4">
-        {filteredCars.map((car) => (
+        {filteredCars.map((car, index) => (
           <ProductReel
             id={car.id}
-            key={car.id}
+            key={index}
             image={car.image}
             category={car.category}
             seats={car.seats}

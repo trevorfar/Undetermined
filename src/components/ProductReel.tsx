@@ -24,6 +24,7 @@ const ProductReel = ({
             width={300}
             height={450}
             className="object-cover"
+            style={{ width: 'auto', height: 'auto' }}
             loading="eager"
           />
         </div>
@@ -31,6 +32,7 @@ const ProductReel = ({
           <div className="flex flex-row">
             <div className="font-bold text-2xl">{description}</div>
             <AddToCartButton product={{ id, description, price, image, category }}/>
+         
           </div>
           <Separator />
         </div>

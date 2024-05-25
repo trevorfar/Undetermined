@@ -8,11 +8,11 @@ const AddToCartButton = ({ product }: { product: Product }) => {
     const { addItem } = useCart()
     
 
-    return <Button onClick={() => {
+    return <button onClick={() => {
         addItem(product)
-    }} size='sm' className="justify-end ml-auto flex hover:bg-gray-50"> 
+    }} className="justify-end ml-auto my-auto pl-4 flex hover:opacity-40"> 
     <ShoppingCartIcon />
-    </Button>
+    </button>
 }
 
 export default AddToCartButton

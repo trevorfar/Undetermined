@@ -5,7 +5,6 @@ import { Separator } from "./ui/separator"
 import { formatPrice } from "@/lib/utils"
 import { buttonVariants } from "./ui/button"
 import Link from "next/link"
-import Image from 'next/image'
 import { useCart } from "../lib/useCart"
 import { ScrollArea } from "./ui/scroll-area"
 import CartItem from "./CartItem"
@@ -44,7 +43,7 @@ const Cart = () => {
                 {itemCount > 0 ? (
                     <>
                         <div className="flex w-full flex-col pr-6">
-                            <ScrollArea>
+                            <ScrollArea className="max-h-64 overflow-auto">
                                 {items.map(({ product }) => (
                                     <CartItem product={product} key={product.id} />
                                 ))}
