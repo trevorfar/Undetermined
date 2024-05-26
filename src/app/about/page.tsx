@@ -1,5 +1,6 @@
+"use client"
+import CheckoutButton from "@/components/CheckoutButton"
 import { Separator } from "@/components/ui/separator"
-
 const About = () => {
   return (
     <div className="flex h-screen items-center justify-center bg-gradient-to-bottom-half">
@@ -8,7 +9,6 @@ const About = () => {
         <h1 className="font-serif text-4xl md:pt-14">
           Our Mission
         </h1>
-    
         <div className="bg-gradient-to-top-half w-full">
           <p className="text-muted-foreground bg-gray-200  p-4 font-serif">
             At Veloce, our journey began with a simple yet
@@ -42,6 +42,7 @@ const About = () => {
             <br />
             Trevor Farias,
             <br /> Founder of Veloce
+            <CheckoutButton />
           </p>
         </div>
       </div>

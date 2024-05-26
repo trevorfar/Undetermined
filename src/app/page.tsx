@@ -6,6 +6,8 @@ export default function Home() {
     <div className="flex flex-col">
    <Title />  
    <Browser />
+
+
    </div>  
   );
 }

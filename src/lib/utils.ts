@@ -31,6 +31,7 @@ export type Product = {
 
 export type CartItem = {
   product: Product
-  quantity: number
+  quantity: number 
+  currency: string
 }
 
