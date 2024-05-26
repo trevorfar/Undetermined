@@ -18,6 +18,10 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        'gradient-to-bottom-half': 'linear-gradient(to bottom, #64748b, transparent)',
+        'gradient-to-top-half': 'linear-gradient(to top, #64748b, transparent)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
