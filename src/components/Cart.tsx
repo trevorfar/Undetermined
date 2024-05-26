@@ -9,6 +9,7 @@ import { useCart } from "../lib/useCart"
 import { ScrollArea } from "./ui/scroll-area"
 import CartItem from "./CartItem"
 import { useEffect, useState } from "react"
+import CheckoutButton from "./CheckoutButton"
 
 //FIX BUG WHERE IF CLICK SAME ONE TWICE IT DOESNT UPDATE 
 //FIX CLOSE NAVBAR ON OPEN
@@ -19,7 +20,6 @@ const Cart = () => {
     const fee = 1
     const [isMounted, setIsMounted] = useState<boolean>(false)
     const [isOpen, setIsOpen] = useState<boolean>(false)
-
     useEffect(() => {
         setIsMounted(true)
     }, [])
@@ -70,11 +70,7 @@ const Cart = () => {
 
                             <SheetFooter>
                                 <SheetTrigger asChild>
-                                    <Link href="/cart" className={buttonVariants({
-                                        className: "w-full",
-                                    })}>
-                                        Continue to Checkout
-                                    </Link>
+                                    <CheckoutButton cartTotal={cartTotal}/>
                                 </SheetTrigger>
                             </SheetFooter>
                         </div>
@@ -86,16 +82,7 @@ const Cart = () => {
                         
                     </div>
                     <div className="text-xl font-semibold"> Your cart is empty</div>
-                    <SheetTrigger asChild>
-                        <Link href='/products' className={buttonVariants({
-                            variant: "link",
-                            size: "sm",
-                            className: "text-sm text-muted-foreground",
-                        })}>
-                            Add items to your cart to checkout
-                        </Link>
-
-                    </SheetTrigger>
+    
                 </div>
                 )}
         </SheetContent>

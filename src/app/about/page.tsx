@@ -42,7 +42,6 @@ const About = () => {
             <br />
             Trevor Farias,
             <br /> Founder of Veloce
-            <CheckoutButton />
           </p>
         </div>
       </div>

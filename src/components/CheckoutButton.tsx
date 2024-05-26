@@ -1,29 +1,41 @@
 import {loadStripe} from "@stripe/stripe-js";
 import { useCart } from "@/lib/useCart"
 
-export default function CheckoutButton() {
+interface CheckoutButtonProps {
+    cartTotal: number;
+}
+export default function CheckoutButton({cartTotal}: CheckoutButtonProps ) {
     const { items } = useCart()
     const itemCount = items.length
-    const cartTotal = items.reduce((total, { product }) => total + product.price, 0)
 
 
     const redirectToCheckout = async () => {
         try {
             const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string);
-
+    
             if (!stripe) throw new Error('Stripe failed to initialize.');
-
+    
+            const lineItems = items.map(({ product }) => ({
+                price_data: {
+                    currency: 'usd', // Assuming the currency is USD for this example
+                    product_data: {
+                        name: product.description,
+                    },
+                    unit_amount: product.price * 100, 
+                },
+            }));
+    
             const checkoutResponse = await fetch('/api/checkout_sessions', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({cartTotal}),
+                body: JSON.stringify({ lineItems, cartTotal }),
             });
-
-            const {sessionId} = await checkoutResponse.json();
-            const stripeError = await stripe.redirectToCheckout({sessionId});
-
+    
+            const { sessionId } = await checkoutResponse.json();
+            const stripeError = await stripe.redirectToCheckout({ sessionId });
+    
             if (stripeError) {
                 console.error(stripeError);
             }
@@ -31,6 +43,7 @@ export default function CheckoutButton() {
             console.error(error);
         }
     };
+    
 
     return (
         <button

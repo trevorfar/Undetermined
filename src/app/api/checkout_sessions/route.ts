@@ -3,8 +3,7 @@ import stripe from '@/config/stripe';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest, res: NextResponse) {
-    const amount = 1000; // $10 in cents
-
+    const { cartTotal } = await req.json();
     try {
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
@@ -14,7 +13,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
                     product_data: {
                         name: 'Sample Product',
                     },
-                    unit_amount: amount,
+                    unit_amount: cartTotal * 100,
                 },
                 quantity: 1,
             }],
